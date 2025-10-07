@@ -1,0 +1,192 @@
+:root {
+    --triangle-color: #2196F3;
+    --toggle-bar-color: #2196F3;
+    --toggle-ball-color: #fff;
+    --range-bar-color: #2196F3;
+    --range-thumb-color: #fff;
+    --range-thumb-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+body.dark-mode {
+    --toggle-bar-color: #fff;
+    --toggle-ball-color: var(--triangle-color);
+    --range-bar-color: var(--triangle-color);
+    --range-thumb-color: var(--triangle-color);
+    --range-thumb-shadow: 0 2px 8px rgba(255,255,255,0.15);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    background: #f9f9f9;
+    color: #222;
+    transition: background 0.3s, color 0.3s;
+    font-size: 15px;
+    letter-spacing: 0.015em;
+}
+
+body.dark-mode {
+    background: #212121;
+    color: #f9f9f9;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    margin-top: 40px;
+}
+
+.controls {
+    margin-bottom: 20px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+label, input, span {
+    font-size: 1em;
+}
+
+canvas {
+    background: inherit;
+    transition: box-shadow 0.6s cubic-bezier(.68,-0.55,.27,1.55), background 0.3s;
+    margin-top: 20px;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
+}
+
+body.dark-mode canvas {
+    background: inherit;
+    box-shadow: 0 4px 28px 0 rgba(0,0,0,0.32), 0 1.5px 2px rgba(255,255,255,0.12) inset;
+}
+
+.mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    margin-right: 8px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--toggle-bar-color);
+    transition: .4s;
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; width: 20px;
+    left: 3px; bottom: 3px;
+    background-color: var(--toggle-ball-color);
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+input:checked + .slider {
+    background-color: var(--toggle-bar-color);
+}
+input:checked + .slider:before {
+    background-color: var(--toggle-ball-color);
+    transform: translateX(24px);
+}
+
+/* Custom Modern Range Slider */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 180px;
+    height: 8px;
+    background: transparent;
+    margin: 0 10px;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 8px;
+    background: var(--range-bar-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--range-thumb-color);
+    box-shadow: var(--range-thumb-shadow);
+    border: 2px solid var(--range-bar-color);
+    margin-top: -6px;
+    transition: background .3s, border-color .3s;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 2px solid #666;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--range-thumb-color);
+    box-shadow: var(--range-thumb-shadow);
+    border: 2px solid var(--range-bar-color);
+    transition: background .3s, border-color .3s;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 8px;
+    background: var(--range-bar-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+input[type="range"]::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--range-thumb-color);
+    box-shadow: var(--range-thumb-shadow);
+    border: 2px solid var(--range-bar-color);
+    transition: background .3s, border-color .3s;
+}
+
+input[type="range"]::-ms-fill-lower,
+input[type="range"]::-ms-fill-upper {
+    background: var(--range-bar-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+input[type="range"] {
+    accent-color: var(--range-bar-color);
+}

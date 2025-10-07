@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Sierpinski Triangle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mode-toggle">
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle">
+            <span class="slider"></span>
+        </label>
+        <span id="mode-label">Light Mode</span>
+    </div>
+    <h1>Interactive Sierpinski Triangle</h1>
+    <div class="controls">
+        <label for="depth">Depth:</label>
+        <input type="range" id="depth" min="1" max="8" value="4">
+        <span id="depth-value">4</span>
+        <label for="color">Triangle Color:</label>
+        <input type="color" id="color" value="#0074D9">
+    </div>
+    <canvas id="sierpinski" width="600" height="520"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
